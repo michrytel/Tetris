@@ -1,0 +1,13 @@
+.grid {
+    width: 200px;
+    height: 400px;
+    background-color: hotpink;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid__element {
+    height: 20px;
+    width: 20px;
+    background-color: red;
+}
