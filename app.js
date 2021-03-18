@@ -68,6 +68,23 @@ document.addEventListener(`DOMContentLoaded`, () => {
     }
     timerID = setInterval(moveDown, 1000)
 
+    //moving tetrominos by keyboard (keyCodes)
+    function control(e) {
+        if(e.keyCode === 37) {
+            moveLeft()
+        } else if (e.keyCode === 38) {
+/*
+            rotate()
+*/
+        } else if (e.keyCode === 39) {
+            moveRight()
+        } else if (e.keyCode === 40) {
+            moveDown()
+        }
+    }
+    document.addEventListener('keyup', control)
+
+
     //stop at the end
     const freeze = () => {
         if(current.some(index => squares[position + index + width].classList.contains(`end`))) {
@@ -79,6 +96,25 @@ document.addEventListener(`DOMContentLoaded`, () => {
         }
     }
 
+    //move left and right
+    function moveLeft() {
+        undraw()
+        const isAtLeftEdge = current.some(index => (position + index) % width === 0)
+        if(!isAtLeftEdge) position -=1
+        if(current.some(index => squares[position + index].classList.contains('end'))) {
+            position +=1
+        }
+        draw()
+    }
+    function moveRight() {
+        undraw()
+        const isAtRightEdge = current.some(index => (position + index) % width === width -1)
+        if(!isAtRightEdge) position +=1
+        if(current.some(index => squares[position + index].classList.contains('end'))) {
+            position -=1
+        }
+        draw()
+    }
 
 
 
