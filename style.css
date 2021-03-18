@@ -18,7 +18,7 @@
 
 /* showing next styling */
 
-.next__grid {
+.show__next {
     width: 80px;
     height: 80px;
     display: flex;
@@ -26,7 +26,7 @@
     background-color: yellow;
 }
 
-.next__grid div {
+.show__next div {
     height: 20px;
     width: 20px;
 }
