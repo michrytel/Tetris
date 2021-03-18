@@ -61,34 +61,27 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     //move down
     const moveDown = () => {
-        undraw()
+        undraw();
         position += width;
-        draw()
-        freeze()
+        draw();
+        freeze();
     }
     timerID = setInterval(moveDown, 1000)
 
     //moving tetrominos by keyboard (keyCodes)
     function control(e) {
-        if(e.keyCode === 37) {
-            moveLeft()
-        } else if (e.keyCode === 38) {
-/*
-            rotate()
-*/
-        } else if (e.keyCode === 39) {
-            moveRight()
-        } else if (e.keyCode === 40) {
-            moveDown()
-        }
+        if(e.keyCode === 37) moveLeft();
+        else if (e.keyCode === 38) rotate();
+        else if (e.keyCode === 39) moveRight();
+        else if (e.keyCode === 40) moveDown();
     }
-    document.addEventListener('keyup', control)
+    document.addEventListener('keyup', control);
 
 
     //stop at the end
     const freeze = () => {
         if(current.some(index => squares[position + index + width].classList.contains(`end`))) {
-            current.forEach(index => squares[position + index].classList.add(`end`))
+            current.forEach(index => squares[position + index].classList.add(`end`));
             random = Math.floor(Math.random() * shapes.length);
             current = shapes[random][rotation];
             position = 4;
@@ -97,26 +90,57 @@ document.addEventListener(`DOMContentLoaded`, () => {
     }
 
     //move left and right
-    function moveLeft() {
-        undraw()
-        const isAtLeftEdge = current.some(index => (position + index) % width === 0)
-        if(!isAtLeftEdge) position -=1
+    const moveLeft = () => {
+        undraw();
+        const leftEdge = current.some(index => (position + index) % width === 0);
+        if(!leftEdge) position -=1;
         if(current.some(index => squares[position + index].classList.contains('end'))) {
             position +=1
         }
-        draw()
+        draw();
     }
-    function moveRight() {
-        undraw()
-        const isAtRightEdge = current.some(index => (position + index) % width === width -1)
-        if(!isAtRightEdge) position +=1
+    const moveRight = () => {
+        undraw();
+        const rightEdge = current.some(index => (position + index) % width === width -1);
+        if(!rightEdge) position +=1;
         if(current.some(index => squares[position + index].classList.contains('end'))) {
             position -=1
         }
+        draw();
+    }
+    //rotate
+    const rotate = () => {
+        undraw();
+        rotation++;
+        if(rotation === current.length) {
+            rotation = 0;
+        }
+        current = shapes[random][rotation]
+        checkRotatedPosition()
         draw()
     }
+    ///rotate at the edge
+    const rightEdge = () => {
+        return current.some(index=> (position + index + 1) % width === 0)
+    }
 
+    const leftEdge = () => {
+        return current.some(index=> (position + index) % width === 0)
+    }
 
-
-
+    const checkRotatedPosition = () => {
+        let pos =  position
+        if ((pos+1) % width < 4) {
+            if (rightEdge()){
+                position += 1
+                checkRotatedPosition()
+            }
+        }
+        else if (pos % width > 5) {
+            if (leftEdge()){
+                position -= 1
+                checkRotatedPosition()
+            }
+        }
+    }
 })
