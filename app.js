@@ -7,11 +7,11 @@ let nextRandom = 0;
 let score = 0;
 let timerID
 const colors = [
-    `orange`,
-    `red`,
-    `purple`,
-    `green`,
-    `pink`
+    `#551177`,
+    `#238100`,
+    `#ee0000`,
+    `#ff0077`,
+    `#4db7f5`
 ]
 
 //blocks, rotation

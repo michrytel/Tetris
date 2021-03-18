@@ -1,16 +1,75 @@
-
+* {
+    font-family: 'Notable', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /* game container styling */
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(top, #b7b29c 0%, #cc89b4 17%, #cc89b4 33%, #40757d 50%, #40757d 66%, #0f5183 83%, #0f5183 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #b7b29c), color-stop(0.165, #cc89b4), color-stop(0.33, #cc89b4), color-stop(0.495, #40757d), color-stop(0.66, #40757d), color-stop(0.83, #0f5183), color-stop(1, #0f5183));
+    background-image: -moz-linear-gradient(top, #b7b29c 0%, #cc89b4 17%, #cc89b4 33%, #40757d 50%, #40757d 66%, #0f5183 83%, #0f5183 100%);
+    background-image: -o-linear-gradient(top, #b7b29c 0%, #cc89b4 17%, #cc89b4 33%, #40757d 50%, #40757d 66%, #0f5183 83%, #0f5183 100%);
+    background-image: -ms-linear-gradient(top, #b7b29c 0%, #cc89b4 17%, #cc89b4 33%, #40757d 50%, #40757d 66%, #0f5183 83%, #0f5183 100%);
+}
+.all {
+    max-width: 800px;
+    max-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+.title {
+    font-size: 8em;
+}
 
+.score {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1em;
+    font-size: 1.5em;
+}
+.play__btn {
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 0.8em;
+
+}
+.play__btn:focus {
+    outline: none;
+}
+.play__btn:hover {
+    color: aqua;
+    transition: 0.1s;
+}
+
+.game__container {
+    margin-left: 90px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+}
 .game__grid {
-    width: 200px;
-    height: 400px;
+    box-shadow: 10px 10px 50px black;
+    box-sizing: initial;
+    border: 5px solid black;
+    width: 400px;
+    height: 800px;
     background-color: hotpink;
     display: flex;
     flex-wrap: wrap;
 }
 .game__grid div {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
 }
 
 /* showing next styling */
@@ -20,7 +79,7 @@
     height: 80px;
     display: flex;
     flex-wrap: wrap;
-    background-color: yellow;
+
 }
 
 .show__next div {
@@ -28,3 +87,6 @@
     width: 20px;
 }
 
+.tetromino {
+    border: 0.000001px solid black;
+}
