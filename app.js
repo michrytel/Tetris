@@ -1,6 +1,5 @@
-document.addEventListener(`DOMContentLoaded`, () => {
-    const grid = document.querySelector(".grid");
-    const squares = Array.from(document.querySelectorAll(".grid div"));
+    const grid = document.querySelector(".game__grid");
+    const squares = Array.from(document.querySelectorAll(".game__grid div"));
     const score = document.querySelector("#score");
     const startBtn = document.querySelector(".play__btn");
     const width = 10;
@@ -58,16 +57,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
             squares[position + index].classList.remove('tetromino');
         })
     }
-
-    //move down
-    const moveDown = () => {
-        undraw();
-        position += width;
-        draw();
-        freeze();
-    }
-    timerID = setInterval(moveDown, 1000)
-
     //moving tetrominos by keyboard (keyCodes)
     function control(e) {
         if(e.keyCode === 37) moveLeft();
@@ -77,6 +66,14 @@ document.addEventListener(`DOMContentLoaded`, () => {
     }
     document.addEventListener('keyup', control);
 
+    //move down
+    const moveDown = () => {
+        undraw();
+        position += width;
+        draw();
+        freeze();
+    }
+    timerID = setInterval(moveDown, 1000)
 
     //stop at the end
     const freeze = () => {
@@ -108,26 +105,20 @@ document.addEventListener(`DOMContentLoaded`, () => {
         }
         draw();
     }
+
     //rotate
     const rotate = () => {
         undraw();
         rotation++;
-        if(rotation === current.length) {
-            rotation = 0;
-        }
+        if(rotation === current.length) rotation = 0;
         current = shapes[random][rotation]
         checkRotatedPosition()
         draw()
     }
+
     ///rotate at the edge
-    const rightEdge = () => {
-        return current.some(index=> (position + index + 1) % width === 0)
-    }
-
-    const leftEdge = () => {
-        return current.some(index=> (position + index) % width === 0)
-    }
-
+    const rightEdge = () => current.some(index=> (position + index + 1) % width === 0)
+    const leftEdge = () => current.some(index=> (position + index) % width === 0)
     const checkRotatedPosition = () => {
         let pos =  position
         if ((pos+1) % width < 4) {
@@ -143,4 +134,5 @@ document.addEventListener(`DOMContentLoaded`, () => {
             }
         }
     }
-})
+
+

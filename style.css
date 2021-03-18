@@ -1,16 +1,33 @@
-.grid {
+.tetromino {
+    background-color: blue;
+}
+
+/* game container styling */
+
+.game__grid {
     width: 200px;
     height: 400px;
     background-color: hotpink;
     display: flex;
     flex-wrap: wrap;
 }
-
-.grid div {
+.game__grid div {
     height: 20px;
     width: 20px;
 }
 
-.tetromino {
-    background-color: blue;
+/* showing next styling */
+
+.next__grid {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: yellow;
 }
+
+.next__grid div {
+    height: 20px;
+    width: 20px;
+}
+
