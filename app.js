@@ -6,6 +6,13 @@ const width = 10;
 let nextRandom = 0;
 let score = 0;
 let timerID
+const colors = [
+    `orange`,
+    `red`,
+    `purple`,
+    `green`,
+    `pink`
+]
 
 //blocks, rotation
 const firstShape = [
@@ -50,6 +57,7 @@ let current = shapes[random][rotation];
 const draw = () => {
     current.forEach(index => {
         squares[position + index].classList.add('tetromino');
+        squares[position + index].style.backgroundColor = colors[random];
     })
 }
 
@@ -57,6 +65,8 @@ const draw = () => {
 const undraw = () => {
     current.forEach(index => {
         squares[position + index].classList.remove('tetromino');
+        squares[position + index].style.backgroundColor = ``;
+
     })
 }
 
@@ -84,8 +94,14 @@ const nextShapes = [
 ]
 
 const displayNextShape = () => {
-    nextDisplay.forEach(square => square.classList.remove('tetromino'))
-    nextShapes[nextRandom].forEach(index => nextDisplay[nextIndex + index].classList.add('tetromino'))
+    nextDisplay.forEach(square => {
+        square.classList.remove('tetromino');
+        square.style.backgroundColor = ``;
+    })
+    nextShapes[nextRandom].forEach(index => {
+        nextDisplay[nextIndex + index].classList.add('tetromino');
+        nextDisplay[nextIndex + index].style.backgroundColor = colors[nextRandom]
+    })
 }
 
 //play button
@@ -194,12 +210,11 @@ const addScore = () => {
 
 //game over
 const gameOver = () => {
-    if(current.some(index => squares[position + index].classList.contains('you lose!'))) {
-        scoreDisplay.innerHTML = 'end'
+    if(current.some(index => squares[position + index].classList.contains('end'))) {
+        scoreDisplay.innerHTML = 'you lose!'
         clearInterval(timerID)
+        document.removeEventListener("keyup", control);  //stops to click on any key
+
     }
 }
-
-
-
 
