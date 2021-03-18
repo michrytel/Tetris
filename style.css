@@ -63,7 +63,6 @@
     border: 5px solid black;
     width: 400px;
     height: 800px;
-    background-color: hotpink;
     display: flex;
     flex-wrap: wrap;
 }
