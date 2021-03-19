@@ -19,6 +19,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row-reverse;
 
 }
 .all {
@@ -37,12 +38,12 @@ html, body {
     gap: 1em;
 }
 .title {
-    font-size: 2.5em;
+    font-size: 3em;
     text-align: center;
 }
 
 .instructions {
-    font-size: 0.8em;
+    font-size: 1.5em;
 }
 
 .score {
@@ -55,7 +56,7 @@ html, body {
     background: transparent;
     border: none;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1.2em;
 
 }
 .play__btn:focus {
@@ -77,14 +78,15 @@ html, body {
     box-shadow: 10px 10px 50px black;
     box-sizing: initial;
     border: 5px solid black;
-    width: 200px;
-    height: 400px;
+    width: 400px;
+    height: 800px;
     display: flex;
     flex-wrap: wrap;
 }
+
 .game__grid div {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
 }
 
 /* showing next styling */
@@ -104,4 +106,63 @@ html, body {
 
 .tetromino {
     border: 0.000001px solid black;
+}
+
+
+
+/*MEDIA QUERIES*/
+@media only screen and (max-height: 1000px),
+screen and (max-width: 1180px) and (min-width: 600px) {
+    .game__grid {
+        width: 200px;
+        height: 400px;
+    }
+    .game__grid div {
+        height: 20px;
+        width: 20px;
+    }
+    .title {
+        font-size: 2em;
+    }
+
+    .instructions {
+        font-size: 1.2em;
+    }
+
+    .score {
+        font-size: 1.2em;
+    }
+    .play__btn {
+        font-size: 1.2em;
+
+    }
+}
+@media only screen and (max-width: 700px) {
+    .container {
+        flex-direction: column-reverse;
+
+    }
+    .game__grid {
+        width: 400px;
+        height: 800px;
+    }
+    .game__grid div {
+        height: 40px;
+        width: 40px;
+    }
+    .title {
+        font-size: 2em;
+    }
+
+    .instructions {
+        font-size: 1.2em;
+    }
+
+    .score {
+        font-size: 1.2em;
+    }
+    .play__btn {
+        font-size: 1.2em;
+
+    }
 }

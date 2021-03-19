@@ -218,3 +218,17 @@ const gameOver = () => {
     }
 }
 
+
+//styling instructions
+
+const instructionsColors = [
+    `#fff100`, `#ff0096`, `#ff0000`, `#00deff`, `#40757d`, `#0f5183`, `#0f5183`, `#ded303`, `#c11e7f`, `#a91472`, `#00d4f5`, `#40757d`, `#0f5183`, `#0f5183`
+]
+setInterval(
+    function () {
+        document.querySelectorAll(".instructions").forEach(el => {
+        let randomColor = instructionsColors[Math.floor(Math.random()*instructionsColors.length)]
+            el.style.transition = "0.5s"
+            el.style.color = randomColor;
+        })
+    },400);
