@@ -192,6 +192,7 @@ and (max-device-width: 720px)
 
     .score {
         font-size: 2em;
+        flex-direction: column;
     }
     .play__btn {
         font-size: 2em;
