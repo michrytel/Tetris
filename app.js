@@ -232,3 +232,7 @@ setInterval(
             el.style.color = randomColor;
         })
     },400);
+
+document.addEventListener('swiped-left', function(e) {
+    moveLeft()
+});

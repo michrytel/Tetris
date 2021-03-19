@@ -137,7 +137,10 @@ screen and (max-width: 1180px) and (min-width: 700px) {
 
     }
 }
-@media only screen and (max-width: 700px) and (min-width: 100px) {
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+ {
     .container {
         flex-direction: column-reverse;
 
@@ -151,18 +154,18 @@ screen and (max-width: 1180px) and (min-width: 700px) {
         width: 40px;
     }
     .title {
-        font-size: 2em;
+        font-size: 4em;
     }
 
     .instructions {
-        font-size: 1.2em;
+        font-size: 2.5em;
     }
 
     .score {
-        font-size: 1.2em;
+        font-size: 2em;
     }
     .play__btn {
-        font-size: 1.2em;
+        font-size: 2em;
 
     }
 }
