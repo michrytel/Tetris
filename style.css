@@ -141,7 +141,7 @@ html, body {
 
 /*MEDIA QUERIES*/
 @media only screen and (max-height: 1000px),
-screen and (max-width: 1180px) and (min-width: 700px) {
+screen and (max-width: 1180px) {
     .game__grid {
         width: 200px;
         height: 400px;
