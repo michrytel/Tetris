@@ -233,6 +233,15 @@ setInterval(
         })
     },400);
 
-document.addEventListener('swiped-left', function(e) {
+document.querySelector(".mobile__left").addEventListener('click', function(e) {
     moveLeft()
+});
+document.querySelector(".mobile__right").addEventListener('click', function(e) {
+    moveRight()
+});
+document.querySelector(".mobile__rotate").addEventListener('click', function(e) {
+    rotate()
+});
+document.querySelector(".mobile__down").addEventListener('click', function(e) {
+    moveDown()
 });
