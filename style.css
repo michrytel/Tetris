@@ -187,7 +187,7 @@ and (max-device-width: 720px)
     }
 
     .instructions {
-        font-size: 2.5em;
+        display: none;
     }
 
     .score {
@@ -226,7 +226,7 @@ and (max-device-width: 1024px) {
         font-size: 1.5em;
     }
     .instructions {
-        font-size: 2em;
+        display: none;
     }
     .title {
         font-size: 2.5em;
