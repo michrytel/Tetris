@@ -110,7 +110,32 @@ html, body {
 }
 
 .mobile__clicker {
+    width: 100vw;
+    margin-top: 1em;
     display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.mobile__extra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.mobile__left, .mobile__right, .mobile__rotate, .mobile__down {
+    padding: 1em;
+    font-size: 2em;
+    background: transparent;
+    border: 4px solid hotpink;
+    border-radius: 50%;
+    box-shadow: 10px 10px 50px black;
+    outline: none;
+    touch-action: manipulation;
+
 }
 
 
@@ -143,7 +168,7 @@ screen and (max-width: 1180px) and (min-width: 700px) {
 }
 @media only screen
 and (min-device-width: 200px)
-and (max-device-width: 812px)
+and (max-device-width: 720px)
  {
     .container {
         flex-direction: column-reverse;
@@ -173,31 +198,37 @@ and (max-device-width: 812px)
 
     }
     .mobile__clicker {
-        width: 100vw;
-        margin-top: 1em;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5em;
-    }
-
-    .mobile__extra {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5em;
-    }
-
-    .mobile__left, .mobile__right, .mobile__rotate, .mobile__down {
-        padding: 1em;
-        font-size: 2em;
-        background: transparent;
-        border: 4px solid hotpink;
-        border-radius: 50%;
-        box-shadow: 10px 10px 50px black;
-        outline: none;
-        touch-action: manipulation;
-
     }
 }
+
+@media only screen
+and (min-device-width: 720px)
+and (max-device-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .game__grid {
+        width: 300px;
+        height: 600px;
+    }
+
+    .game__grid div {
+        height: 30px;
+        width: 30px;
+    }
+    .mobile__clicker {
+        display: flex;
+    }
+    .score {
+        font-size: 1.5em;
+    }
+    .instructions {
+        font-size: 2em;
+    }
+    .title {
+        font-size: 2.5em;
+    }
+}
+
