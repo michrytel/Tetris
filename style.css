@@ -197,5 +197,7 @@ and (max-device-width: 812px)
         border-radius: 50%;
         box-shadow: 10px 10px 50px black;
         outline: none;
+        touch-action: manipulation;
+
     }
 }

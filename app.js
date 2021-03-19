@@ -245,7 +245,3 @@ document.querySelector(".mobile__rotate").addEventListener('click', function(e) 
 document.querySelector(".mobile__down").addEventListener('click', function(e) {
     moveDown()
 });
-
-document.addEventListener('touchmove', function (event) {
-    if (event.scale !== 1) { event.preventDefault(); }
-}, { passive: false });
